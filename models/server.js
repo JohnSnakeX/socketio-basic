@@ -4,6 +4,7 @@ import { Server } from "socket.io";
 import path from "path";
 import { fileURLToPath } from "url";
 import Sockets from "./sockets.js";
+import cors from "cors";
 
 class ServerIO {
   constructor() {
@@ -24,6 +25,9 @@ class ServerIO {
 
     //Desplegar el directorio público
     this.app.use(express.static(path.resolve(__dirname, "../public")));
+
+    //use cors
+    this.app.use(cors());
   }
 
   //Configurar Sockets
